@@ -1,45 +1,28 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# DataCollectorDevice
+讀取(RS485)裝置訊號、資料整理、資料傳送
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+## Python版本
+Python 3.9.2
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## 安裝套件
+1. py-linq 1.2.5
+2. pymodbus 2.5.2
+3. func-timeout 4.3.5
+4. requests 2.25.1
 
----
+## Config
+### 1. config.ini
+為了能夠在程式執行時動態切換模式。
+### 2. ReadInfo.json
+紀錄案場所需讀取(RS485)裝置的設定資訊和執行此服務的(樹莓派)裝置資訊。
+### 3. SettingInfo.json
+紀錄讀取逆變器、數位電表、日照計、溫度計的各種廠牌的設定資訊，以及天機拆分設定資訊。
 
-## Edit a file
+## 執行程式
+### 說明
+```DataCollecotr.py```為雙系統下的主要執行程式，```DataCollectorsingle.py```
+### 方法
+1. 在終端機執行```./run_DataCollector.sh```指令，15秒後會開啟以DataCollector為命名的screen。
+2. 在終端機執行```python3 DataCollector.py```指令，程式即會執行。
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
-
----
-
-## Create a file
-
-Next, you’ll add a new file to this repository.
-
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
-
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).

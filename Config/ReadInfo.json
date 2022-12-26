@@ -1,0 +1,55 @@
+{
+    "awsIot":{
+        "thingName":"rfdme-raspberry-T0000-01",
+        "shadowName":"state",
+        "endpoint":"a3s0shx085zc58-ats.iot.ap-northeast-1.amazonaws.com",
+        "certificatePath":"/greengrass/v2/thingCert.crt",
+        "privateKeyPath":"/greengrass/v2/privKey.key"
+    },
+    "projectID": "T0000",
+    "serial": "/dev/ttyUSB0",
+    "oldFlag": false,
+    "operateModel": "Normal",
+    "nodeModel": "single",
+    "nodeID": {
+        "master": 5,
+        "slave": 6
+    },
+    "device": {
+        "inv": [
+            {
+                "label": "prime",
+                "macaddress": 1,
+                "flag": 1,
+                "devID": 6
+            }
+        ],
+        "sp": [
+            {
+                "label": "spm-3",
+                "macaddress": 15,
+                "flag": 1,
+                "devID": 5
+            }
+        ],
+        "irr": [],
+        "temp": [
+            {
+                "label": "ctec-04",
+                "macaddress": 17,
+                "flag": 1,
+                "devID": 3
+            }
+        ]
+    },
+    "err": {
+        "inv": [
+            {
+                "label": "prime",
+                "macaddress": 1,
+                "flag": 1,
+                "devID": 6
+            }
+        ]
+    }
+}

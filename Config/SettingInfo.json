@@ -1,0 +1,2729 @@
+{
+    "Log": {
+        "FileLevel": "INFO",
+        "ConsoleLevel": "INFO",
+        "Path": "/home/pi/AppLog/"
+    },
+    "LostDataPath": "/home/pi/LostData/",
+    "KinesisDataPath": "/home/pi/KinesisData/",
+    "otherServer": [],
+    "kinesisSource": {
+        "Normal": "rfdme-iot-data-prod-stream",
+        "OQC": "rfdme-iot-data-test-stream",
+        "Debug": "rfdme-iot-data-test-stream"
+    },
+    "operateModel": {
+        "Normal": {
+            "oqc": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJvYWNoIn0.pTtSmIQFp9Tr9AWjmGP7-qpEeVoLJW0oQ5vBHAk5MhI",
+                "url": "http://oqc.rfdme.com/api/oqcHelper",
+                "flag": false
+            },
+            "server": {
+                "ip": "dc-g00.rfdme.com",
+                "port": "19000"
+            },
+            "server_backup": {
+                "ip": "dc-g00.rfdme.com",
+                "port": "20010"
+            },
+            "period": {
+                "read": 60,
+                "device": 5,
+                "heartbeat": 1,
+                "err": 1,
+                "oqc": 1,
+                "node": 0
+            }
+        },
+        "OQC": {
+            "oqc": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJvYWNoIn0.pTtSmIQFp9Tr9AWjmGP7-qpEeVoLJW0oQ5vBHAk5MhI",
+                "url": "http://oqc.rfdme.com/api/oqcHelper",
+                "flag": true
+            },
+            "server": {
+                "ip": "dc-g00.rfdme.com",
+                "port": "19000"
+            },
+            "server_backup": {
+                "ip": "dc-g00.rfdme.com",
+                "port": "20010"
+            },
+            "period": {
+                "read": 60,
+                "device": 1,
+                "heartbeat": 1,
+                "err": 1,
+                "oqc": 1,
+                "node": 0
+            }
+        },
+        "Debug": {
+            "oqc": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJvYWNoIn0.pTtSmIQFp9Tr9AWjmGP7-qpEeVoLJW0oQ5vBHAk5MhI",
+                "url": "http://oqc.rfdme.com/api/oqcHelper",
+                "flag": false
+            },
+            "server": {
+                "ip": "60.250.189.54",
+                "port": "19000"
+            },
+            "server_backup": {
+                "ip": "60.250.189.54",
+<<<<<<< HEAD
+                "port": "20010"
+=======
+                "port": "9876"
+>>>>>>> dev_roach_kinesis_20220926
+            },
+            "period": {
+                "read": 60,
+                "device": 1,
+                "heartbeat": 1,
+                "err": 1,
+                "oqc": 1,
+                "node": 0
+            }
+        }
+    },
+    "device": {
+        "inv": {
+            "prime": {
+                "Read": [
+                    {
+                        "StartBit": 4097,
+                        "Length": 40
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActivePowerL1",
+                        "StartSite": 2,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActivePowerL2",
+                        "StartSite": 7,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActivePowerL3",
+                        "StartSite": 12,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 16,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 17,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 19,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower2",
+                        "StartSite": 21,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage3",
+                        "StartSite": 23,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent3",
+                        "StartSite": 24,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower3",
+                        "StartSite": 25,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 27,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "status",
+                        "StartSite": 28,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 32,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "operatingHours",
+                        "StartSite": 34,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 38,
+                        "Length": 2,
+                        "Rate": 1000.0
+                    }
+                ]
+            },
+            "huawei_2": {
+                "Read": [
+                    {
+                        "StartBit": 32016,
+                        "Length": 8
+                    },
+                    {
+                        "StartBit": 32064,
+                        "Length": 26
+                    },
+                    {
+                        "StartBit": 32106,
+                        "Length": 2
+                    },
+                    {
+                        "StartBit": 32114,
+                        "Length": 2
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcVoltage3",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent3",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcVoltage4",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent4",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 8,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 16,
+                        "Length": 2,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 18,
+                        "Length": 2,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 20,
+                        "Length": 2,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 24,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 28,
+                        "Length": 1,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 29,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 31,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "resistor",
+                        "StartSite": 32,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "status",
+                        "StartSite": 33,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 34,
+                        "Length": 2,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 36,
+                        "Length": 2,
+                        "Rate": 100.0
+                    }
+                ]
+            },
+            "huawei_1": {
+                "Read": [
+                    {
+                        "StartBit": 32262,
+                        "Length": 10
+                    },
+                    {
+                        "StartBit": 32277,
+                        "Length": 19
+                    },
+                    {
+                        "StartBit": 32300,
+                        "Length": 2
+                    },
+                    {
+                        "StartBit": 32306,
+                        "Length": 2
+                    },
+                    {
+                        "StartBit": 32323,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage3",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent3",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage4",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent4",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage5",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent5",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 16,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 19,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "status",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 23,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 27,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 29,
+                        "Length": 2,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 31,
+                        "Length": 2,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "resistor",
+                        "StartSite": 33,
+                        "Length": 1,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "solaredge": {
+                "Read": [
+                    {
+                        "StartBit": 40072,
+                        "Length": 30
+                    },
+                    {
+                        "StartBit": 40107,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentLSF",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageLSF",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePowerSF",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "frequencySF",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 19,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactorSF",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 21,
+                        "Length": 2,
+<<<<<<< HEAD
+                        "Rate": 1000
+=======
+                        "Rate": 1000.0
+>>>>>>> dev_roach_kinesis_20220926
+                    },
+                    {
+                        "Field": "acActiveEnergySF",
+                        "StartSite": 23,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 24,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcCurrentSF",
+                        "StartSite": 25,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 26,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltageSF",
+                        "StartSite": 27,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 28,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePowerSF",
+                        "StartSite": 29,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "status",
+                        "StartSite": 30,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 28,
+                        "Length": 1,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "delta": {
+                "Read": [
+                    {
+                        "StartBit": 1047,
+                        "Length": 1
+                    },
+                    {
+                        "StartBit": 1071,
+                        "Length": 9
+                    },
+                    {
+                        "StartBit": 45055,
+                        "Length": 16
+                    },
+                    {
+                        "StartBit": 49151,
+                        "Length": 12
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "status",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 1,
+                        "Length": 2,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 5,
+                        "Length": 2,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower2",
+                        "StartSite": 16,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage3",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent3",
+                        "StartSite": 18,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower3",
+                        "StartSite": 19,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage4",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent4",
+                        "StartSite": 21,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower4",
+                        "StartSite": 22,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage5",
+                        "StartSite": 23,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent5",
+                        "StartSite": 24,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower5",
+                        "StartSite": 25,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 26,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 27,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 28,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acActivePowerL1",
+                        "StartSite": 29,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 31,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 32,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acAtivePowerL2",
+                        "StartSite": 33,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 35,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 36,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acAtivePowerL3",
+                        "StartSite": 37,
+                        "Length": 1,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "kaco_1": {
+                "Read": [],
+                "Parse": [
+                    {
+                        "Field": "status",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 16,
+                        "Length": 1,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "kaco_2": {
+                "Read": [],
+                "Parse": [
+                    {
+                        "Field": "status",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower2",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 16,
+                        "Length": 1,
+<<<<<<< HEAD
+                        "Rate": 1000
+=======
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 18,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 1000.0
+>>>>>>> dev_roach_kinesis_20220926
+                    }
+                ]
+            },
+            "kaco_3": {
+                "Read": [],
+                "Parse": [
+                    {
+                        "Field": "status",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acAtivePowerL1",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "fronius": {
+                "Read": [
+                    {
+                        "StartBit": 40073,
+                        "Length": 23
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 16,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "status",
+                        "StartSite": 22,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcActivePower",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "cyberpower": {
+                "Read": [
+                    {
+                        "StartBit": 4145,
+                        "Length": 13
+                    },
+                    {
+                        "StartBit": 4256,
+                        "Length": 13
+                    },
+                    {
+                        "StartBit": 4272,
+                        "Length": 7
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "status",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 7,
+                        "Length": 2,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 11,
+                        "Length": 2,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 14,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 15,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 16,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 18,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "acAtivePowerL1",
+                        "StartSite": 19,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePowerL2",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePowerL3",
+                        "StartSite": 21,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 25,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 26,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 27,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower1",
+                        "StartSite": 28,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 29,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 30,
+                        "Length": 1,
+                        "Rate": 100.0
+                    },
+                    {
+                        "Field": "dcActivePower2",
+                        "StartSite": 31,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 32,
+                        "Length": 1,
+                        "Rate": 10.0
+                    }
+                ]
+            },
+            "goodwe": {
+                "Read": [
+                    {
+                        "StartBit": 546,
+                        "Length": 23
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 0,
+                        "Length": 2,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "operatingHours",
+                        "StartSite": 2,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "dcVoltage1",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcVoltage2",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent1",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "dcCurrent2",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 10,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 11,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 12,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 13,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acActivePower",
+                        "StartSite": 17,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "status",
+                        "StartSite": 18,
+                        "Length": 1,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "internalTemperature",
+                        "StartSite": 19,
+                        "Length": 1,
+                        "Rate": 10.0
+                    },
+                    {
+                        "Field": "acActiveEnergyDaily",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 10.0
+                    }
+                ]
+            }
+        },
+        "sp": {
+            "spm-3": {
+                "Read": [
+                    {
+                        "StartBit": 4096,
+                        "Length": 56
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 0,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 2,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 4,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acLineVoltageL1L2",
+                        "StartSite": 8,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acLineVoltageL2L3",
+                        "StartSite": 10,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acLineVoltageL3L1",
+                        "StartSite": 12,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 16,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 18,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 20,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 24,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePowerL1",
+                        "StartSite": 26,
+                        "Length": 2,
+                        "Rate": 0.001
+                    },
+                    {
+                        "Field": "acActivePowerL2",
+                        "StartSite": 28,
+                        "Length": 2,
+                        "Rate": 0.001
+                    },
+                    {
+                        "Field": "acActivePowerL3",
+                        "StartSite": 30,
+                        "Length": 2,
+                        "Rate": 0.001
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 50,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 52,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "reactiveEnergy",
+                        "StartSite": 54,
+                        "Length": 2,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "spm-8": {
+                "Read": [
+                    {
+                        "StartBit": 4106,
+                        "Length": 34
+                    },
+                    {
+                        "StartBit": 4158,
+                        "Length": 8
+                    },
+                    {
+                        "StartBit": 4184,
+                        "Length": 14
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 0,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 2,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 4,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acLineVoltageL1L2",
+                        "StartSite": 8,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acLineVoltageL2L3",
+                        "StartSite": 10,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acLineVoltageL3L1",
+                        "StartSite": 12,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 16,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 18,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acCurrentL3",
+                        "StartSite": 20,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "frequency",
+                        "StartSite": 26,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActivePowerL1",
+                        "StartSite": 28,
+                        "Length": 2,
+                        "Rate": 0.001
+                    },
+                    {
+                        "Field": "acActivePowerL2",
+                        "StartSite": 30,
+                        "Length": 2,
+                        "Rate": 0.001
+                    },
+                    {
+                        "Field": "acActivePowerL3",
+                        "StartSite": 32,
+                        "Length": 2,
+                        "Rate": 0.001
+                    },
+                    {
+                        "Field": "powerFactor1",
+                        "StartSite": 34,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor2",
+                        "StartSite": 36,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor3",
+                        "StartSite": 38,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 40,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveConsumptionEnergy",
+                        "StartSite": 42,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveProductionEnergy",
+                        "StartSite": 44,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 46,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "reactiveConsumptionEnergy",
+                        "StartSite": 50,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "reactiveProductionEnergy",
+                        "StartSite": 52,
+                        "Length": 2,
+                        "Rate": 1.0
+                    },
+                    {
+                        "Field": "reactiveEnergy",
+                        "StartSite": 54,
+                        "Length": 2,
+                        "Rate": 1.0
+                    }
+                ]
+            },
+            "DM2436AB": {
+                "Read": [
+                    {
+                        "StartBit": 0,
+                        "Length": 28
+                    },
+                    {
+                        "StartBit": 36,
+                        "Length": 28
+                    },
+                    {
+                        "StartBit": 72,
+                        "Length": 28
+                    },
+                    {
+                        "StartBit": 128,
+                        "Length": 24
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "acVoltageL1",
+                        "StartSite": 0,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acCurrentL1",
+                        "StartSite": 4,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acActivePowerL1",
+                        "StartSite": 12,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "frequencyL1",
+                        "StartSite": 24,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acVoltageL2",
+                        "StartSite": 28,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acCurrentL2",
+                        "StartSite": 32,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acActivePowerL2",
+                        "StartSite": 40,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "frequencyL2",
+                        "StartSite": 52,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acVoltageL3",
+                        "StartSite": 56,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+<<<<<<< HEAD
+                        "Field": "dailyEnergy",
+                        "StartSite": 20,
+                        "Length": 1,
+                        "Rate": 1000
+                    }
+                ]
+            }
+        },
+        "sp": {
+            "spm-3": {
+                "Read": [
+                    {
+                        "StartBit": 4148,
+                        "Length": 2
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "totalEnergy",
+                        "StartSite": 0,
+                        "Length": 2,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "spm-8": {
+                "Read": [
+                    {
+                        "StartBit": 4188,
+                        "Length": 2
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "totalEnergy",
+                        "StartSite": 0,
+                        "Length": 2,
+                        "Rate": 1
+=======
+                        "Field": "acCurrentL3",
+                        "StartSite": 60,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acActivePowerL3",
+                        "StartSite": 68,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "frequencyL1",
+                        "StartSite": 80,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "powerFactor",
+                        "StartSite": 84,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acActiveEnergy",
+                        "StartSite": 88,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acReactiveEnergy",
+                        "StartSite": 92,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acLineVoltageL1L2",
+                        "StartSite": 96,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acLineVoltageL2L3",
+                        "StartSite": 100,
+                        "Length": 4,
+                        "Rate": 1000.0
+                    },
+                    {
+                        "Field": "acLineVoltageL3L1",
+                        "StartSite": 104,
+                        "Length": 4,
+                        "Rate": 1000.0
+>>>>>>> dev_roach_kinesis_20220926
+                    }
+                ]
+            }
+        },
+        "irr": {
+            "ctec-03": {
+                "Read": [
+                    {
+                        "StartBit": 256,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "irradiance",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "SP-422": {
+                "Read": [
+                    {
+                        "StartBit": 40,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "irradiance",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10
+                    }
+                ]
+            }
+        },
+        "temp": {
+            "ctec-04": {
+                "Read": [
+                    {
+                        "StartBit": 256,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "temperature",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10.0
+                    }
+                ]
+            },
+            "JXBS-3001-TH": {
+                "Read": [
+                    {
+                        "StartBit": 1,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "temperature",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10.0
+                    }
+                ]
+            },
+            "SD200": {
+                "Read": [
+                    {
+                        "StartBit": 4096,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "temperature",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 10.0
+                    }
+                ]
+            }
+        }
+    },
+    "err": {
+        "inv": {
+            "prime": {
+                "Read": [
+                    {
+                        "StartBit": 4126,
+                        "Length": 2
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "huawei_2": {
+                "Read": [
+                    {
+                        "StartBit": 32008,
+                        "Length": 3
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "huawei_1": {
+                "Read": [
+                    {
+                        "StartBit": 50001,
+                        "Length": 9
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err4",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err5",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err6",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err7",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err8",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err9",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "solaredge": {
+                "Read": [
+                    {
+                        "StartBit": 40108,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "kaco_1": {
+                "Read": [],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "kaco_2": {
+                "Read": [],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "kaco_3": {
+                "Read": [],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "delta": {
+                "Read": [
+                    {
+                        "StartBit": 3071,
+                        "Length": 3
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "fronius": {
+                "Read": [
+                    {
+                        "StartBit": 40119,
+                        "Length": 4
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err4",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "cyberpower": {
+                "Read": [
+                    {
+                        "StartBit": 4290,
+                        "Length": 2
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "goodwe": {
+                "Read": [
+                    {
+                        "StartBit": 544,
+                        "Length": 2
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err2",
+                        "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            }
+        }
+    },
+    "TienJi": {
+        "sp": {
+            "GSE18": [
+                {
+                    "id": "G0E15",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0E19",
+                    "flag": "3"
+                }
+            ],
+            "GSE17": [
+                {
+                    "id": "G0009",
+                    "flag": "2"
+                }
+            ],
+            "GS054": [
+                {
+                    "id": "G0E21",
+                    "flag": "2"
+                }
+            ],
+            "GS079": [
+                {
+                    "id": "G0078",
+                    "flag": "3"
+                },
+                {
+                    "id": "G0080",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0081",
+                    "flag": "4"
+                },
+                {
+                    "id": "G0082",
+                    "flag": "5"
+                }
+            ],
+            "GS074": [
+                {
+                    "id": "G0070",
+                    "flag": "2"
+                }
+            ],
+            "GS075": [
+                {
+                    "id": "G0071",
+                    "flag": "2"
+                }
+            ],
+            "GS069": [
+                {
+                    "id": "G0072",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0076",
+                    "flag": "3"
+                }
+            ],
+            "GS065": [
+                {
+                    "id": "G0066",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0067",
+                    "flag": "3"
+                },
+                {
+                    "id": "G0068",
+                    "flag": "4"
+                }
+            ],
+            "GS058": [
+                {
+                    "id": "G0059",
+                    "flag": "2"
+                }
+            ],
+            "GS060": [
+                {
+                    "id": "G0061",
+                    "flag": "2"
+                }
+            ],
+            "GS063": [
+                {
+                    "id": "G0062",
+                    "flag": "2"
+                }
+            ],
+            "GS056": [
+                {
+                    "id": "G0E06",
+                    "flag": "2"
+                }
+            ],
+            "GS052": [
+                {
+                    "id": "G0E12",
+                    "flag": "2"
+                }
+            ],
+            "GS023": [
+                {
+                    "id": "G0019",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0024",
+                    "flag": "3"
+                },
+                {
+                    "id": "G0A24",
+                    "flag": "4"
+                }
+            ],
+            "GS025": [
+                {
+                    "id": "G0026",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0047",
+                    "flag": "3"
+                },
+                {
+                    "id": "G0027",
+                    "flag": "4"
+                },
+                {
+                    "id": "G0048",
+                    "flag": "5"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "6"
+                }
+            ],
+            "GS017": [
+                {
+                    "id": "G0018",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0020",
+                    "flag": "3"
+                }
+            ],
+            "GS021": [
+                {
+                    "id": "G0016",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0022",
+                    "flag": "3"
+                }
+            ],
+            "GS015": [
+                {
+                    "id": "G0014",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "3"
+                }
+            ],
+            "GS028": [
+                {
+                    "id": "G0029",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0030",
+                    "flag": "3"
+                },
+                {
+                    "id": "G0031",
+                    "flag": "4"
+                }
+            ],
+            "GS033": [
+                {
+                    "id": "G0032",
+                    "flag": "2"
+                }
+            ],
+            "GS013": [
+                {
+                    "id": "G0012",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0E10",
+                    "flag": "3"
+                }
+            ],
+            "GS034": [
+                {
+                    "id": "G0035",
+                    "flag": "2"
+                }
+            ],
+            "GS038": [
+                {
+                    "id": "G0039",
+                    "flag": "2"
+                }
+            ],
+            "GS011": [
+                {
+                    "id": "G0010",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0040",
+                    "flag": "3"
+                }
+            ],
+            "GS044": [
+                {
+                    "id": "G0045",
+                    "flag": "2"
+                }
+            ],
+            "GS046": [
+                {
+                    "id": "G0049",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0E14",
+                    "flag": "3"
+                }
+            ],
+            "GS041": [
+                {
+                    "id": "GSA41",
+                    "flag": "2"
+                }
+            ],
+            "GSE02": [
+                {
+                    "id": "G0E01",
+                    "flag": "2"
+                }
+            ],
+            "GS008": [
+                {
+                    "id": "G0008",
+                    "flag": "2"
+                }
+            ]
+        },
+        "inv": {
+            "GS041": [
+                {
+                    "id": "GSA41",
+                    "flag": "11"
+                },
+                {
+                    "id": "GSA41",
+                    "flag": "12"
+                },
+                {
+                    "id": "GSA41",
+                    "flag": "13"
+                },
+                {
+                    "id": "GSA41",
+                    "flag": "14"
+                },
+                {
+                    "id": "GSA41",
+                    "flag": "15"
+                },
+                {
+                    "id": "GSA41",
+                    "flag": "16"
+                },
+                {
+                    "id": "GSA41",
+                    "flag": "17"
+                }
+            ],
+            "G0048": [
+                {
+                    "id": "G0A48",
+                    "flag": "5"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "6"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "7"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "8"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "9"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "10"
+                },
+                {
+                    "id": "G0A48",
+                    "flag": "11"
+                }
+            ],
+            "G0014": [
+                {
+                    "id": "G0A14",
+                    "flag": "1"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "2"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "3"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "4"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "5"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "6"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "7"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "8"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "9"
+                },
+                {
+                    "id": "G0A14",
+                    "flag": "10"
+                }
+            ],
+            "G0024": [
+                {
+                    "id": "G0A24",
+                    "flag": "7"
+                },
+                {
+                    "id": "G0A24",
+                    "flag": "8"
+                },
+                {
+                    "id": "G0A24",
+                    "flag": "9"
+                }
+            ],
+            "GS077": [
+                {
+                    "id": "G0E77",
+                    "flag": "52"
+                }
+            ]
+        }
+    }
+}
