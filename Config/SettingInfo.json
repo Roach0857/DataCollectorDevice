@@ -71,11 +71,7 @@
             },
             "server_backup": {
                 "ip": "60.250.189.54",
-<<<<<<< HEAD
-                "port": "20010"
-=======
                 "port": "9876"
->>>>>>> dev_roach_kinesis_20220926
             },
             "period": {
                 "read": 60,
@@ -673,11 +669,7 @@
                         "Field": "acActiveEnergy",
                         "StartSite": 21,
                         "Length": 2,
-<<<<<<< HEAD
-                        "Rate": 1000
-=======
                         "Rate": 1000.0
->>>>>>> dev_roach_kinesis_20220926
                     },
                     {
                         "Field": "acActiveEnergySF",
@@ -1111,9 +1103,6 @@
                         "Field": "dcActivePower",
                         "StartSite": 16,
                         "Length": 1,
-<<<<<<< HEAD
-                        "Rate": 1000
-=======
                         "Rate": 1.0
                     },
                     {
@@ -1133,7 +1122,6 @@
                         "StartSite": 20,
                         "Length": 1,
                         "Rate": 1000.0
->>>>>>> dev_roach_kinesis_20220926
                     }
                 ]
             },
@@ -1885,46 +1873,6 @@
                         "Rate": 1000.0
                     },
                     {
-<<<<<<< HEAD
-                        "Field": "dailyEnergy",
-                        "StartSite": 20,
-                        "Length": 1,
-                        "Rate": 1000
-                    }
-                ]
-            }
-        },
-        "sp": {
-            "spm-3": {
-                "Read": [
-                    {
-                        "StartBit": 4148,
-                        "Length": 2
-                    }
-                ],
-                "Parse": [
-                    {
-                        "Field": "totalEnergy",
-                        "StartSite": 0,
-                        "Length": 2,
-                        "Rate": 1
-                    }
-                ]
-            },
-            "spm-8": {
-                "Read": [
-                    {
-                        "StartBit": 4188,
-                        "Length": 2
-                    }
-                ],
-                "Parse": [
-                    {
-                        "Field": "totalEnergy",
-                        "StartSite": 0,
-                        "Length": 2,
-                        "Rate": 1
-=======
                         "Field": "acCurrentL3",
                         "StartSite": 60,
                         "Length": 4,
@@ -1977,7 +1925,6 @@
                         "StartSite": 104,
                         "Length": 4,
                         "Rate": 1000.0
->>>>>>> dev_roach_kinesis_20220926
                     }
                 ]
             }
