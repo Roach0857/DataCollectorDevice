@@ -25,14 +25,25 @@ class Handle():
         Result = json.loads(FileData)
         return Result
 
+    def PingInternet(self):
+        while(True):
+            flag = os.system('ping -c 1 www.google.com')
+            if flag == 0:
+                break
+            time.sleep(1)
+
     def GetReadInfo(self):
+        self.PingInternet()
         ssmResult = self.GetSSMParameter()
         if ssmResult != None:
             result = json.loads(ssmResult)
+            with open("/home/pi/ReadInfo.json", "w") as file:
+                file.write(json.dumps(result, indent=4))
         else:
             result = self.GetInfo('/home/pi/ReadInfo.json')
         with open("Config/ReadInfo.json", "w") as file:
             file.write(json.dumps(result, indent=4))
+        
         return result
     
     def GetSSMParameter(self):
@@ -50,25 +61,21 @@ class Handle():
         return None
 
     def RegulateTime(self):
+        ntpServerList = ["tock.stdtime.gov.tw","watch.stdtime.gov.tw","time.stdtime.gov.tw","clock.stdtime.gov.tw","tick.stdtime.gov.tw"]
+        flag = False
         if self.thingName.split("-")[-3] != "ecu":
             osResult = os.popen("systemctl stop ntp.service; echo $?").read()
             while(True):
-                count = 1
-                ntpServer = ["tock.stdtime.gov.tw",
-                            "watch.stdtime.gov.tw",
-                            "time.stdtime.gov.tw",
-                            "clock.stdtime.gov.tw",
-                            "tick.stdtime.gov.tw"]
-                ntpResult = None
-                ntpResult = os.popen("sudo ntpdate {}".format(ntpServer[count%5])).read()
-                print("ntpResult:{}".format(ntpResult))
-                if ("offset" in ntpResult):
+                for ntpServer in ntpServerList:
+                    ntpResult = os.popen(f"sudo ntpdate {ntpServer}").read()
+                    print("ntpResult:{}".format(ntpResult))
+                    if ("offset" in ntpResult):
+                        flag = True
+                        break
+                    time.sleep(1)
+                if flag:
+                    osResult = os.popen("systemctl start ntp.service; echo $?").read()
                     break
-                elif (count == 60):
-                    break
-                time.sleep(5)
-                count +=1
-            osResult = os.popen("systemctl start ntp.service; echo $?").read()
     
     def CheckFolder(self, path):
         if not os.path.isdir(path):

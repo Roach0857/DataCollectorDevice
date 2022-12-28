@@ -44,12 +44,11 @@ class Handle():
     def SendPacket(self, queueData:Queue, sendFunction):
         while(queueData.empty()):
             sendData:SendData
-            sendData = queueData.get()
+            sendData = queueData.queue[0]
             data = json.loads(sendData.data)
             if sendFunction(data):
                 self.DeleteFile(sendData.path)
-            else:
-                queueData.put(sendData)
+                queueData.get()
    
     def SendSocket(self, data):
         flag = False

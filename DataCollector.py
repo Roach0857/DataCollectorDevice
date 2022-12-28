@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from queue import Queue
-import sys
+import sys, os
 import time
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -61,5 +61,8 @@ if __name__ == '__main__':
         finally:
             GPIO.cleanup()
     except Exception as ex:
-        HL.SystemExceptionInfo()
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_obj)
+        print("{0} | Line:{1} | {2}".format(fname, exc_tb.tb_lineno, exc_type))
         raise ex
