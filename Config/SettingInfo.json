@@ -1,7 +1,7 @@
 {
     "Log": {
-        "FileLevel": "INFO",
-        "ConsoleLevel": "INFO",
+        "FileLevel": "ERROR",
+        "ConsoleLevel": "ERROR",
         "Path": "/home/pi/AppLog/"
     },
     "LostDataPath": "/home/pi/LostData/",

@@ -79,8 +79,7 @@ class ReadINVKaco(ReadDevice):
                result = [None]
         except Exception as ex:
             result = [None]
-            self.logger.info("readKACOStandard: {0} | ".format(ex))
-            HL.SystemExceptionInfo()
+            self.logger.error(f"readKACOStandard: {ex} | {HL.SystemExceptionInfo()}")
         finally:
             self.pymc.close()
             return result
@@ -106,8 +105,7 @@ class ReadINVKaco(ReadDevice):
             else:
                 self.logger.info("READ Macaddress: {0} NG<br>".format(self.deviceItem['macaddress']))
         except Exception as ex:
-            self.logger.info("readGeneric: {0} | ".format(ex))
-            HL.SystemExceptionInfo()
+            self.logger.error(f"readGeneric: {ex} | {HL.SystemExceptionInfo()}")
         finally:
             self.pymc.close()
             return result
@@ -159,8 +157,7 @@ class ReadINVKaco(ReadDevice):
                 else:
                     readResult = receiveString
         except Exception as ex:
-            self.logger.info("KacoMethod: {0} | ".format(ex))
-            HL.SystemExceptionInfo()
+            self.logger.info(f"KacoMethod: {ex} | {HL.SystemExceptionInfo()}")
         return readResult
 
     def OneByteChecksum(self, rawData, resultChecksum):
@@ -205,8 +202,7 @@ class ReadINVDelta(ReadDevice):
                         registersResult.extend(deltaResult)
                         result = registersResult
         except Exception as ex:
-            self.logger.info("ReadINVDelta_readDeviceData: {0} | ".format(ex))
-            HL.SystemExceptionInfo()
+            self.logger.error(f"ReadINVDelta_readDeviceData: {ex} | {HL.SystemExceptionInfo()}")
         finally:
             self.pymc.close()
             return result
@@ -227,8 +223,7 @@ class ReadINVDelta(ReadDevice):
                     return None
             return result
         except Exception as ex:
-            self.logger.info("ReadINVDelta_read: {0} | ".format(ex))
-            HL.SystemExceptionInfo()
+            self.logger.error(f"ReadINVDelta_read: {ex} | {HL.SystemExceptionInfo()}")
             
 def ReaderFactory(strSerial, dataType, readSetting, deviceItem, deviceType, label, logger):
     factory = {'kaco':ReadINVKaco,'delta':ReadINVDelta, 'sp':ReadSP, 'device':ReadDevice, 'cyberpower':ReadSP}

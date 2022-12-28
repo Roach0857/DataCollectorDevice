@@ -4,12 +4,14 @@ import sys, os
 import time
 
 from apscheduler.schedulers.background import BackgroundScheduler
+from Entity.NodeID import NodeID
 
 import Entity.Period as EP
 import Handler.Config as HC
 import Handler.Logger as HL
 import Handler.Packet as HP
 import Handler.Read as HR
+import Handler.Mqtt as HM
 from Entity.GPIOInfo import GPIO
 
 
@@ -50,13 +52,16 @@ if __name__ == '__main__':
         readInfo = configHandler.readInfo
         settingInfo = configHandler.settingInfo
         config = configHandler.config
-        processorLogger = HL.Handle(settingInfo['Log'])
+        mqtt = HM.Handle(readInfo, NodeID(readInfo))
+        mqtt.Connect()
+        processorLogger = HL.Handle(settingInfo['Log'], mqtt)
         logger = processorLogger.GetLogger()
+        logger.warning("test Log!!")
         try:
             mo = ModeOperation(config, settingInfo, readInfo, logger)
             mo.Main()
         except Exception as ex:
-            logger.critical("DataCollector, ex: {0} |".format(ex), exc_info=True)
+            logger.critical("DataCollector, ex: {0} |".format(ex))
             HL.SystemExceptionInfo()
         finally:
             GPIO.cleanup()

@@ -50,8 +50,7 @@ class Handle(HS.Handle):
             else:
                 self.logger.info("No Data, System Rest")
         except Exception as ex:
-            self.logger.warning("DoSelect, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.warning(f"DoSelect, ex: {ex} | {HL.SystemExceptionInfo()}")
                             
     def SelectData(self, dataTuple:tuple[dict,datetime.datetime]):
         self.rawErrData = dataTuple[0]["err"]

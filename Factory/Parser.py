@@ -350,8 +350,7 @@ class ParserSp(ParserInv):
                 dataString = ('{:04x}'.format(self.data[self.StartSite + count]) + dataString)
             value = round(struct.unpack('!f', bytes.fromhex(dataString))[0],4)
         except Exception as ex:
-            print("ParserSpData_Basic, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            print(f"ParserSpData_Basic, ex: {ex} | {HL.SystemExceptionInfo()}")
         result = value / self.Rate
         return result
        

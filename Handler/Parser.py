@@ -60,8 +60,8 @@ class Handle():
             resultObject['temp'] = self.ParserDevice(rawData.temp, dataType, 'temp')
             return resultObject
         except Exception as ex:
-            self.logger.warning("ParserRawData, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.warning(f"ParserRawData, ex: {ex} | {HL.SystemExceptionInfo()}")
+            
     
     def ParserDevice(self, rawData:list[ModbusData], dataType, deviceType):
         result = []
@@ -93,8 +93,7 @@ class Handle():
             resultDict = filter.Process(resultDict)
             return resultDict
         except Exception as ex:
-            self.logger.warning("ParserModbusData, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.warning(f"ParserModbusData, ex: {ex} | {HL.SystemExceptionInfo()}")
 
     def ConvertToObject(self, parserResult,rawData:list[ModbusData], deviceInfo):
         try:
@@ -111,6 +110,5 @@ class Handle():
                 count += 1
             return result
         except Exception as ex:
-            self.logger.warning("ParserProcessor_ResultToJson, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.warning(f"ParserProcessor_ResultToJson, ex: {ex} | {HL.SystemExceptionInfo()}")
     

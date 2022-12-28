@@ -50,13 +50,13 @@ class KinesisStream:
         try:
             self.kinesis_client.create_stream(StreamName=name, ShardCount=1)
             self.name = name
-            self.logger.info("Created stream %s.", name)
+            self.logger.info(f"Created stream {name}.", name)
             if wait_until_exists:
                 self.logger.info("Waiting until exists.")
                 self.stream_exists_waiter.wait(StreamName=name)
                 self.describe(name)
         except ClientError:
-            self.logger.exception("Couldn't create stream %s.", name)
+            self.logger.error(f"Couldn't create stream {name}.")
             raise
 
     def describe(self, name):
@@ -71,10 +71,10 @@ class KinesisStream:
                 response = self.kinesis_client.describe_stream(StreamName=name)
                 self.name = name
                 self.details = response['StreamDescription']
-                self.logger.info("Got stream %s.", name)
+                self.logger.info(f"Got stream {name}.")
                 return self.details
             except ClientError:
-                self.logger.exception("Couldn't get %s.", name)
+                self.logger.error(f"Couldn't get {name}.")
             except Exception as ex:
                 self.logger.error(f"Describe stream faild {ex}.") 
             time.sleep(1)
@@ -86,9 +86,9 @@ class KinesisStream:
         try:
             self.kinesis_client.delete_stream(StreamName=self.name)
             self._clear()
-            self.logger.info("Deleted stream %s.", self.name)
+            self.logger.info(f"Deleted stream {self.name}.")
         except ClientError:
-            self.logger.exception("Couldn't delete stream %s.", self.name)
+            self.logger.error(f"Couldn't delete stream {self.name}.")
             raise
 
     def put_record(self, data, partition_key):
@@ -105,9 +105,9 @@ class KinesisStream:
                 StreamName=self.name,
                 Data=json.dumps(data),
                 PartitionKey=partition_key)
-            self.logger.info("Put record in stream %s.", self.name)
+            self.logger.info(f"Put record in stream {self.name}.")
         except ClientError:
-            self.logger.exception("Couldn't put record in stream %s.", self.name)
+            self.logger.error(f"Couldn't put record in stream {self.name}.")
             raise
         else:
             return response
@@ -131,9 +131,9 @@ class KinesisStream:
                     }
                     for d in data] 
                 )
-            self.logger.info("Put record in stream %s.", self.name)
+            self.logger.info(f"Put record in stream {self.name}.", )
         except ClientError:
-            self.logger.exception("Couldn't put record in stream %s.", self.name)
+            self.logger.error(f"Couldn't put record in stream {self.name}." )
             raise
         else:
             return response
@@ -159,20 +159,20 @@ class KinesisStream:
                     ShardIterator=shard_iter, Limit=10)
                 shard_iter = response['NextShardIterator']
                 records = response['Records']
-                self.logger.info("Got %s records.", len(records))
+                self.logger.info(f"Got {len(records)} records.")
                 record_count += len(records)
                 yield records
         except ClientError:
-            self.logger.exception("Couldn't get records from stream %s.", self.name)
+            self.logger.error(f"Couldn't get records from stream {self.name}.", self.name)
             raise
       
     def get_shards(self):
         try:
             response = self.kinesis_client.list_shards(StreamName=self.name)
-            self.logger.info("Get shards in stream %s.", self.name)
+            self.logger.info(f"Get shards in stream {self.name}.", )
             self.details["Shards"] = response["Shards"]
         except ClientError:
-            self.logger.exception("Couldn't get shards in stream %s.", self.name)
+            self.logger.error(f"Couldn't get shards in stream {self.name}.")
             raise
         else:
             return response

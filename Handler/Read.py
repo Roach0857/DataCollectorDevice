@@ -56,8 +56,7 @@ class Handle():
                 self.logger.info("{0} No Device Need To Read".format(deviceType))
             return True
         except Exception as ex:
-            self.logger.error("ReadProcessor_ReadDevice, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.error(f"ReadProcessor_ReadDevice, ex: {ex} | {HL.SystemExceptionInfo()}")
         finally:
             for index in range(len(result)):
                 if result[index].data != [None]:
@@ -80,8 +79,7 @@ class Handle():
                 if self.CheckFullData() :
                     return True
         except Exception as ex:
-            self.logger.error("ReadProcessor_Process, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.error(f"ReadProcessor_Process, ex: {ex} | {HL.SystemExceptionInfo()}")
 
     def CheckFullData(self):
         flag = False
@@ -144,5 +142,4 @@ class Handle():
             else:
                 self.logger.info("Mutual Flag:{}, Do Not Read".format(self.systemFlag))
         except Exception as ex:
-            self.logger.warning("DoRead, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.warning(f"DoRead, ex: {ex} | {HL.SystemExceptionInfo()}")

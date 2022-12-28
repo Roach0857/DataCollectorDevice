@@ -4,17 +4,41 @@ import logging.handlers
 import os
 import re
 import sys
-
+import Handler.Mqtt as HM
 
 def SystemExceptionInfo():
     exc_type, exc_obj, exc_tb = sys.exc_info()
     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-    print("{0} | Line:{1} | {2}".format(fname, exc_tb.tb_lineno, exc_type))
-    
+    return f"{fname} | Line:{exc_tb.tb_lineno} | {exc_type}"
+
+class ECULogger():
+    def __init__(self, logger:logging.Logger, mqtt:HM.Handle):
+        self.logger = logger
+        self.mqtt = mqtt
+
+    def debug(self, string:str):
+        self.logger.debug(string)
+
+    def info(self, string:str):
+        self.logger.info(string)
+
+    def warning(self, string:str):
+        self.mqtt.Publish(string)
+        self.logger.warning(string, exc_info=True)
+
+    def critical(self, string:str):
+        self.mqtt.Publish(string)
+        self.logger.critical(string, exc_info=True)
+
+    def error(self, string:str):
+        self.mqtt.Publish(string)
+        self.logger.error(string, exc_info=True)
+
 class Handle():
-    def __init__(self, settingInfo):
+    def __init__(self, settingInfo, mqtt):
         self.settingInfo = settingInfo
-        
+        self.mqtt = mqtt
+
     def GetLogger(self):
         logger = logging.getLogger("DataCollector")
         logger.setLevel(self.settingInfo['ConsoleLevel'])
@@ -31,4 +55,4 @@ class Handle():
         streamHandler.setLevel(self.settingInfo['ConsoleLevel'])
         streamHandler.setFormatter(logFormat)
         logger.addHandler(streamHandler)
-        return logger
+        return ECULogger(logger, self.mqtt)

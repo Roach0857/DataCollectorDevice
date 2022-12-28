@@ -37,8 +37,7 @@ class Handle():
             else:
                 self.SendPacket(self.socketData, self.SendSocket)
         except Exception as ex:
-            self.logger.warning("DoSend, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()  
+            self.logger.warning(f"DoSend, ex: {ex} | {HL.SystemExceptionInfo()}")
         self.sendFlag = False
             
     def SendPacket(self, queueData:Queue, sendFunction):
@@ -125,8 +124,7 @@ class Handle():
                     sock.close()
                     break
             except Exception as ex:
-                self.logger.warning("SendProcessor_SendMethod, ex: {0} | ".format(ex), exc_info=True)
-                HL.SystemExceptionInfo()
+                self.logger.warning(f"SendProcessor_SendMethod, ex: {ex} | {HL.SystemExceptionInfo()}")
         return sendFlag            
         
     def DeleteFile(self, path):
@@ -182,7 +180,6 @@ class Handle():
             r = requests.post(self.config['oqc']['url'], json=jsonStr, timeout = 5)
             self.logger.info("requests:" + r.content.decode())
         except Exception as ex:
-            self.logger.warning("SendProcessor_PostToApi, ex: {0} | ".format(ex), exc_info=True)
-            HL.SystemExceptionInfo()
+            self.logger.warning(f"SendProcessor_PostToApi, ex: {ex} | {HL.SystemExceptionInfo()}")
 
         return sendFlag
