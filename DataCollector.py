@@ -56,7 +56,6 @@ if __name__ == '__main__':
         mqtt.Connect()
         processorLogger = HL.Handle(settingInfo['Log'], mqtt)
         logger = processorLogger.GetLogger()
-        logger.warning("test Log!!")
         try:
             mo = ModeOperation(config, settingInfo, readInfo, logger)
             mo.Main()
