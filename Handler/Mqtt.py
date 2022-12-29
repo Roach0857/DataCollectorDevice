@@ -57,7 +57,7 @@ class Handle():
         
     def Publish(self, payload: str):
         topic = f"rfdme/things/{self.readInfo['awsIot']['thingName']}/log"
-        message = {"message":payload}
+        message = {"thingName":self.readInfo['awsIot']['thingName'],"message":payload}
         publishFuture, packet_id = self.connection.publish(topic=topic, qos=mqtt.QoS.AT_MOST_ONCE, payload=json.dumps(message))
         publishResult = publishFuture.result()
         print(publishResult)
