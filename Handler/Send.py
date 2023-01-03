@@ -104,7 +104,7 @@ class Handle():
             self.kinesisHandler.kinesisStream.get_shards(self.settingInfo['kinesisSource'])
             return False
         except Exception as ex:
-            self.logger.warning("SendKinesis, ex: {0} | ".format(ex), exc_info=True)
+            self.logger.warning("SendKinesis, ex: {0} | ".format(ex))
             return False
         
     def SocketProcess(self, ip, port, data):
@@ -154,7 +154,7 @@ class Handle():
                     self.logger.debug("Get Lost Packet: {0}".format(readData))
                     result = readData
                 except Exception as ex:
-                    self.logger.warning("GetPacket, ex: {0} | ".format(ex), exc_info=True)
+                    self.logger.warning("GetPacket, ex: {0} | ".format(ex))
             f.close()
         return result
         
