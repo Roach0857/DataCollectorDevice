@@ -62,21 +62,20 @@ class Handle():
 
     def RegulateTime(self):
         ntpServerList = ["tock.stdtime.gov.tw","watch.stdtime.gov.tw","time.stdtime.gov.tw","clock.stdtime.gov.tw","tick.stdtime.gov.tw"]
-        flag = False
         if self.thingName.split("-")[-3] != "ecu":
             osResult = os.popen("systemctl stop ntp.service; echo $?").read()
-            while(True):
-                for ntpServer in ntpServerList:
-                    ntpResult = os.popen(f"sudo ntpdate {ntpServer}").read()
-                    print("ntpResult:{}".format(ntpResult))
-                    if ("offset" in ntpResult):
-                        flag = True
-                        break
-                    time.sleep(1)
-                if flag:
-                    osResult = os.popen("systemctl start ntp.service; echo $?").read()
-                    break
-    
+            try:
+                while(True):
+                    for ntpServer in ntpServerList:
+                        ntpResult = os.popen(f"sudo ntpdate {ntpServer}").read()
+                        print("ntpResult:{}".format(ntpResult))
+                        if ("offset" in ntpResult):
+                            break
+                        time.sleep(1)
+            except Exception as ex:
+                print(ex)
+            osResult = os.popen("systemctl start ntp.service; echo $?").read()
+
     def CheckFolder(self, path):
         if not os.path.isdir(path):
             os.makedirs(path)
