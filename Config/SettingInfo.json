@@ -2069,8 +2069,12 @@
             "huawei_1": {
                 "Read": [
                     {
-                        "StartBit": 50001,
-                        "Length": 9
+                        "StartBit": 50000,
+                        "Length": 10
+                    },
+                    {
+                        "StartBit": 50016,
+                        "Length": 1
                     }
                 ],
                 "Parse": [
@@ -2125,6 +2129,18 @@
                     {
                         "Field": "err9",
                         "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err10",
+                        "StartSite": 9,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err11",
+                        "StartSite": 10,
                         "Length": 1,
                         "Rate": 1
                     }
@@ -2184,6 +2200,14 @@
                     {
                         "StartBit": 3071,
                         "Length": 3
+                    },
+                    {
+                        "StartBit": 3103,
+                        "Length": 5
+                    },
+                    {
+                        "StartBit": 3087,
+                        "Length": 2
                     }
                 ],
                 "Parse": [
@@ -2202,6 +2226,48 @@
                     {
                         "Field": "err3",
                         "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err4",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err5",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err6",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err7",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err8",
+                        "StartSite": 7,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err9",
+                        "StartSite": 8,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err10",
+                        "StartSite": 9,
                         "Length": 1,
                         "Rate": 1
                     }
@@ -2244,8 +2310,8 @@
             "cyberpower": {
                 "Read": [
                     {
-                        "StartBit": 4290,
-                        "Length": 2
+                        "StartBit": 4294,
+                        "Length": 8
                     }
                 ],
                 "Parse": [
@@ -2258,6 +2324,42 @@
                     {
                         "Field": "err2",
                         "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err3",
+                        "StartSite": 2,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err4",
+                        "StartSite": 3,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err5",
+                        "StartSite": 4,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err6",
+                        "StartSite": 5,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err7",
+                        "StartSite": 6,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err8",
+                        "StartSite": 7,
                         "Length": 1,
                         "Rate": 1
                     }
