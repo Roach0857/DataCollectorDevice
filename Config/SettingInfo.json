@@ -2398,7 +2398,23 @@
                     }
                 ]
             },
-            "solaredge": {
+            "solaredge_1": {
+                "Read": [
+                    {
+                        "StartBit": 40108,
+                        "Length": 1
+                    }
+                ],
+                "Parse": [
+                    {
+                        "Field": "err1",
+                        "StartSite": 0,
+                        "Length": 1,
+                        "Rate": 1
+                    }
+                ]
+            },
+            "solaredge_2": {
                 "Read": [
                     {
                         "StartBit": 40108,
