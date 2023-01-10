@@ -372,7 +372,7 @@ class ParserDM2436AB(ParserInv):
     
 def ParserFactory(data, parserInfo, dataType, deviceType, label):
     factory = {'device':
-                    {'inv':{'Basic':ParserInv, 'solaredge':ParserInvSolaredge, 'fornius':ParserInvFronius}, 
+                    {'inv':{'Basic':ParserInv, 'solaredge_2':ParserInvSolaredge, 'solaredge_1':ParserInvSolaredge, 'fornius':ParserInvFronius}, 
                      'temp':{'Basic':ParserTemp}, 
                      'irr':{'Basic':ParserIrr}, 
                      'sp':{'Basic':ParserSp, "DM2436AB":ParserDM2436AB}},
