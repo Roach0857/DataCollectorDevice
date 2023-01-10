@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 from queue import Queue
 import sys, os
+import threading
 import time
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -32,6 +33,7 @@ class ModeOperation():
         socketData = Queue()
         packet = HP.Handle(self.config, self.settingInfo, self.readInfo, socketData, kinesisData, self.period, self.logger)
         readHandler = HR.Handle(self.settingInfo, self.readInfo, self.period, packet.parserData, packet.backupObject, self.logger)
+        self.logger.warning(f'init finish, threads: {threading.active_count()}')
         mainJob = BackgroundScheduler()
         mainJob.add_job(readHandler.DoRead, 'cron', minute='*', id='DoRead')
         mainJob.add_job(packet.DoSelect, 'cron', second='*/15', id='DoSelect')
