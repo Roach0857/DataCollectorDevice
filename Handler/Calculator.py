@@ -56,12 +56,11 @@ class CalculatorSolaredgeData(CalculatorData):
                 sfField[field[:-2]] = value
             else:
                 valueField[field] = value
-        for sfField, sfValue in sfField.items():
-            for vField, vValue in  valueField.items():
-                if sfField in vField:
-                    result[vField] = vValue * (10 ** sfValue)
-                else:
-                    result[vField] = vValue
+        for vField, vValue in  valueField.items():
+            if vField in sfField:
+                result[vField] = vValue * (10 ** sfField[vField])
+            else:
+                result[vField] = vValue
         ld = LocalData(self.strID)
         localData = ld.Read()
         if localData != None:
