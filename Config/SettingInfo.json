@@ -2326,7 +2326,7 @@
                 "Read": [
                     {
                         "StartBit": 4126,
-                        "Length": 2
+                        "Length": 3
                     }
                 ],
                 "Parse": [
@@ -2339,6 +2339,12 @@
                     {
                         "Field": "err2",
                         "StartSite": 1,
+                        "Length": 1,
+                        "Rate": 1
+                    },
+                    {
+                        "Field": "err3",
+                        "StartSite": 2,
                         "Length": 1,
                         "Rate": 1
                     }
