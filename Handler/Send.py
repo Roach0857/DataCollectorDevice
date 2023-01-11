@@ -41,7 +41,7 @@ class Handle():
         self.sendFlag = False
             
     def SendPacket(self, queueData:Queue, sendFunction):
-        while(queueData.empty()):
+        while(not queueData.empty()):
             sendData:SendData
             sendData = queueData.queue[0]
             data = json.loads(sendData.data)

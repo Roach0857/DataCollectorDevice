@@ -2,9 +2,7 @@
 import json
 import os
 import time
-
 import boto3
-
 
 class Handle():
     def __init__(self, thingName:str):
@@ -80,11 +78,3 @@ class Handle():
     def CheckFolder(self, path):
         if not os.path.isdir(path):
             os.makedirs(path)
-
-
-if __name__ == '__main__':
-    handler = Handle("rfdme-raspberry-T0000-01")
-    settingInfo = handler.settingInfo
-    readInfo = handler.readInfo
-    config = handler.config
-    print("done")
