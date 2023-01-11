@@ -10,6 +10,8 @@ def CalculatorFactory(dataType, label, strID, logger):
     if dataType == "device":
         if label in factory:
             result = factory[label](strID, logger)
+        elif 'solaredge' in label:
+            result = factory['kaco'](strID, logger)
         elif 'kaco' in label:
             result = factory['kaco'](strID, logger)
         else:
