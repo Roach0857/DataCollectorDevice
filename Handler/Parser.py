@@ -23,7 +23,7 @@ class Handle():
         self.objectID = readInfo['projectID']
         self.deviceID = {"inv" :'01',"sp" :'00',"irr" :'04',"temp" :'05'}
         self.dataProcessor = [PTJ.Handle(self.settingInfo, self.objectID, self.readInfo['oldFlag'])]
-        
+
     def DoParser(self, rawData:RawData, startTime:datetime, backupObject):
         parserRawDataResult = {}
         processResult = {'heartbeat':None, 'node':None}
@@ -41,7 +41,7 @@ class Handle():
             processResult['err'] = processor.Process(parserRawDataResult['err'])
         
         for dataType in packetParserResult.keys():
-            packetParser = FP.PacketFactory(dataType, self.readInfo, processResult[dataType], processTime, backupObject)
+            packetParser = FP.PacketFactory(dataType, self.readInfo, processResult[dataType], processTime, backupObject, self.settingInfo['err'])
             packetParserResult[dataType] = packetParser.Process()
         
         if self.readInfo['oldFlag']:

@@ -7,7 +7,7 @@ import Handler.Logger as HL
 
 
 class Packet():
-    def __init__(self, readInfo, rawData, processTime):
+    def __init__(self, readInfo, rawData, processTime, errSetting):
         self.readInfo = readInfo
         if readInfo['nodeModel'] == 'single':
             self.nodeID = self.readInfo['nodeID']['master']
@@ -16,6 +16,7 @@ class Packet():
         self.rawData = rawData
         self.processTime = processTime
         self.deviceID = {"inv" :'01',"sp" :'00',"irr" :'04',"temp" :'05'}
+        self.errSetting = errSetting
 
     def Major(self, typeData):
         result = {}
@@ -30,7 +31,7 @@ class Packet():
             objectID = packetData[count]['objectID']
             for tag in dataTag:
                 for typeDevice, content in self.rawData[count][tag].items():
-                    contentList = self.Handle(content)
+                    contentList = self.Handle(typeDevice, content)
                     del packetData[count][tag][typeDevice]
                     if contentList != []:
                         packetData[count][tag][typeDevice] = contentList
@@ -49,7 +50,7 @@ class Packet():
             
         return result
 
-    def Handle(self, content):
+    def Handle(self, typeDevice, content):
         contentList = []
         if content != None:
             for data in content.values():
@@ -81,7 +82,7 @@ class Packet():
         return result
 
 class Heartbeat(Packet):
-    def Handle(self, content):
+    def Handle(self, typeDevice, content):
         contentList = []
         if content != None:
             for data in content.values():
@@ -99,18 +100,21 @@ class Heartbeat(Packet):
         return result
 
 class Error(Packet):
-    def Handle(self, content):
+    def Handle(self, typeDevice, content):
         contentList = []
         if content != None:
             for data in content.values():
                 if data != None:
                     for field, errCode in data.items():
-                        if (field[:3] == "err" and (errCode != '')):
+                        getLabel = list(filter(lambda x:x['devID'] == data['deviceID'], self.readInfo['err'][typeDevice]))
+                        getaddress = list(filter(lambda x:x['Field'] == field, self.errSetting[typeDevice][getLabel[0]['label']]['Parse']))
+                        if (field[:3] == "err"):
                             dataContent = {
                                 "objectID":data['objectID'],
                                 "deviceID":data['deviceID'], 
                                 "time":data['time'],
                                 "errID":field[3:],
+                                "address":getaddress[0]['address'],
                                 "errCode":errCode}
                             contentList.append(dataContent)
         return contentList
@@ -192,12 +196,12 @@ class Node():
             self.resultList.append(result)
             self.backupObject.nodeErr.bus.clear()
 
-def PacketFactory(dataType, readInfo, rawData, processTime, backupObject):
+def PacketFactory(dataType, readInfo, rawData, processTime, backupObject, errSetting):
     factory = {'device':Packet,'heartbeat':Heartbeat,'oqc':OQC,'err':Error, 'node':Node}
     if dataType == 'node':
         result = factory[dataType](backupObject, processTime)
     else:
-        result = factory[dataType](readInfo, rawData, processTime)
+        result = factory[dataType](readInfo, rawData, processTime, errSetting)
     return AbsPacketInterface(result)
 
 class AbsPacketInterface():
@@ -357,10 +361,7 @@ class ParserSp(ParserInv):
        
 class ParserErrInv(ParserInv):
     def Process(self):
-        result = ""
-        if self.data[self.StartSite] != 0:
-            result = str(self.data[self.StartSite])
-        return result
+        return self.data[self.StartSite]
 
 class ParserDM2436AB(ParserInv):
     def Process(self):
