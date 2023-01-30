@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from copy import deepcopy
 from datetime import datetime
-from logging import Logger
 
 import Factory.Parser as FP
 import Handler.Calculator as HC
@@ -14,7 +13,7 @@ from Entity.TotalModbusData import TotalModbusData
 
 
 class Handle():
-    def __init__(self, settingInfo, readInfo, logger:Logger):
+    def __init__(self, settingInfo, readInfo, logger):
         self.settingInfo = settingInfo
         self.readInfo = readInfo
         self.logger = logger
@@ -23,7 +22,7 @@ class Handle():
         self.objectID = readInfo['projectID']
         self.deviceID = {"inv" :'01',"sp" :'00',"irr" :'04',"temp" :'05'}
         self.dataProcessor = [PTJ.Handle(self.settingInfo, self.objectID, self.readInfo['oldFlag'])]
-        
+
     def DoParser(self, rawData:RawData, startTime:datetime, backupObject):
         parserRawDataResult = {}
         processResult = {'heartbeat':None, 'node':None}
@@ -41,7 +40,7 @@ class Handle():
             processResult['err'] = processor.Process(parserRawDataResult['err'])
         
         for dataType in packetParserResult.keys():
-            packetParser = FP.PacketFactory(dataType, self.readInfo, processResult[dataType], processTime, backupObject)
+            packetParser = FP.PacketFactory(dataType, self.readInfo, processResult[dataType], processTime, backupObject, self.settingInfo['err'])
             packetParserResult[dataType] = packetParser.Process()
         
         if self.readInfo['oldFlag']:
@@ -60,8 +59,8 @@ class Handle():
             resultObject['temp'] = self.ParserDevice(rawData.temp, dataType, 'temp')
             return resultObject
         except Exception as ex:
-            self.logger.warning(f"ParserRawData, ex: {ex} | {HL.SystemExceptionInfo()}")
-            
+            self.logger.warning("ParserRawData, ex: {0} | ".format(ex))
+            HL.SystemExceptionInfo()
     
     def ParserDevice(self, rawData:list[ModbusData], dataType, deviceType):
         result = []
@@ -93,7 +92,8 @@ class Handle():
             resultDict = filter.Process(resultDict)
             return resultDict
         except Exception as ex:
-            self.logger.warning(f"ParserModbusData, ex: {ex} | {HL.SystemExceptionInfo()}")
+            self.logger.warning("ParserModbusData, ex: {0} | ".format(ex))
+            HL.SystemExceptionInfo()
 
     def ConvertToObject(self, parserResult,rawData:list[ModbusData], deviceInfo):
         try:
@@ -110,5 +110,6 @@ class Handle():
                 count += 1
             return result
         except Exception as ex:
-            self.logger.warning(f"ParserProcessor_ResultToJson, ex: {ex} | {HL.SystemExceptionInfo()}")
+            self.logger.warning("ParserProcessor_ResultToJson, ex: {0} | ".format(ex))
+            HL.SystemExceptionInfo()
     

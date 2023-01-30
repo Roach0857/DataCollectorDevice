@@ -21,7 +21,7 @@ class Handle(HS.Handle):
         self.readInfo = readInfo
         self.period = period
         self.logger = logger
-        self.shadowHandler = HA.Handle(readInfo, logger)
+        self.shadowHandler = HA.Handle(readInfo, settingInfo, logger)
         self.mutualHandler = HM.MutualFactory(config, readInfo, self.shadowHandler, self.SendPacket, logger)
         self.backupObject = self.mutualHandler.backupObject
         self.parserData = Queue()
@@ -50,7 +50,8 @@ class Handle(HS.Handle):
             else:
                 self.logger.info("No Data, System Rest")
         except Exception as ex:
-            self.logger.warning(f"DoSelect, ex: {ex} | {HL.SystemExceptionInfo()}")
+            self.logger.warning("DoSelect, ex: {0} | ".format(ex))
+            HL.SystemExceptionInfo()
                             
     def SelectData(self, dataTuple:tuple[dict,datetime.datetime]):
         self.rawErrData = dataTuple[0]["err"]
@@ -78,6 +79,8 @@ class Handle(HS.Handle):
                             self.shadowHandler.Update(shadowRequest)
                         elif dataType == 'err':
                             self.KinesisDataProcess(dataType, dataList)
+                            shadowRequest = self.shadowHandler.MakeDeviceErrorCode(dataList)
+                            self.shadowHandler.Update(shadowRequest)
                             
     def KinesisDataProcess(self, dataType, dataList):
         contentType = dataType
@@ -115,7 +118,7 @@ class Handle(HS.Handle):
         self.kinesisData.put(SendData(strData, f"{self.settingInfo['KinesisDataPath']}{fileName}.txt"))
         self.logger.info(f"Kinesis Data -> FileName:{fileName}, Data:{strData}")
         
-    def GetKinesisData(self, contentType, deviceType, deviceData:list[dict], ):
+    def GetKinesisData(self, contentType, deviceType, deviceData:list[dict]):
         result = []
         for data in deviceData:
             if contentType == 'err':
@@ -132,9 +135,11 @@ class Handle(HS.Handle):
                 if key == "flag":
                     continue
                 if key == 'errCode':
-                    value = hex(int(value))[2:].zfill(4)
+                    value = hex(value)[2:].zfill(4)
                 resultData[key] = value
             result.append(resultData)
+        if deviceType == 'err':
+            return list(filter(lambda x:x['errCode'] != '0000', result))
         return result
     
     def GetKinesisDataTotal(self, kinesisData, deviceType, objectID):
@@ -186,10 +191,11 @@ class Handle(HS.Handle):
                             if deviceType in projectErr[0]['err']:
                                 deviceErr = Enumerable(projectErr[0]['err'][deviceType]).where(lambda x:x['deviceID'] == dataContant['deviceID']).to_list()
                                 for err in deviceErr:
-                                    if err["errID"] == "1":
-                                        dataContant["err1"] = err["errCode"]
-                                    elif err["errID"] == "2":
-                                        dataContant["err2"] = err["errCode"]
+                                    if err["errCode"] != '0000':
+                                        if err["errID"] == "1":
+                                            dataContant["err1"] = err["errCode"]
+                                        elif err["errID"] == "2":
+                                            dataContant["err2"] = err["errCode"]
         return result
     
     def SocketDataProcess(self, dataType, dataList):
