@@ -135,7 +135,7 @@ class Handle(HS.Handle):
                 if key == "flag":
                     continue
                 if key == 'errCode':
-                    value = hex(value)[2:].zfill(4)
+                    value = hex(value)[2:].zfill(4).upper()
                 resultData[key] = value
             result.append(resultData)
         if deviceType == 'err':
@@ -193,9 +193,9 @@ class Handle(HS.Handle):
                                 for err in deviceErr:
                                     if err["errCode"] != '0000':
                                         if err["errID"] == "1":
-                                            dataContant["err1"] = err["errCode"]
+                                            dataContant["err1"] = hex(err["errCode"])[2:].zfill(4).upper()
                                         elif err["errID"] == "2":
-                                            dataContant["err2"] = err["errCode"]
+                                            dataContant["err2"] = hex(err["errCode"])[2:].zfill(4).upper()
         return result
     
     def SocketDataProcess(self, dataType, dataList):
