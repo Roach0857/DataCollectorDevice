@@ -138,8 +138,8 @@ class Handle(HS.Handle):
                     value = hex(value)[2:].zfill(4).upper()
                 resultData[key] = value
             result.append(resultData)
-        if deviceType == 'err':
-            return list(filter(lambda x:x['errCode'] != 0, result))
+        if contentType == 'err':
+            return list(filter(lambda x:x['errCode'] != '0000', result))
         return result
     
     def GetKinesisDataTotal(self, kinesisData, deviceType, objectID):
