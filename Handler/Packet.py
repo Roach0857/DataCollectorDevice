@@ -139,7 +139,7 @@ class Handle(HS.Handle):
                 resultData[key] = value
             result.append(resultData)
         if deviceType == 'err':
-            return list(filter(lambda x:x['errCode'] != '0000', result))
+            return list(filter(lambda x:x['errCode'] != 0, result))
         return result
     
     def GetKinesisDataTotal(self, kinesisData, deviceType, objectID):
@@ -193,9 +193,9 @@ class Handle(HS.Handle):
                                 for err in deviceErr:
                                     if err["errCode"] != '0000':
                                         if err["errID"] == "1":
-                                            dataContant["err1"] = hex(err["errCode"])[2:].zfill(4).upper()
+                                            dataContant["err1"] = err["errCode"]
                                         elif err["errID"] == "2":
-                                            dataContant["err2"] = hex(err["errCode"])[2:].zfill(4).upper()
+                                            dataContant["err2"] = err["errCode"]
         return result
     
     def SocketDataProcess(self, dataType, dataList):
