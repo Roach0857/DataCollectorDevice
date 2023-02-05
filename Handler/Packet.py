@@ -193,9 +193,9 @@ class Handle(HS.Handle):
                                 for err in deviceErr:
                                     if err["errCode"] != 0:
                                         if err["errID"] == "1":
-                                            dataContant["err1"] = err["errCode"]
+                                            dataContant["err1"] = str(err["errCode"])
                                         elif err["errID"] == "2":
-                                            dataContant["err2"] = err["errCode"]
+                                            dataContant["err2"] = str(err["errCode"])
         return result
     
     def SocketDataProcess(self, dataType, dataList):
