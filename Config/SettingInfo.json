@@ -1377,7 +1377,7 @@
                         "address": "C005"
                     },
                     {
-                        "Field": "acAtivePowerL2",
+                        "Field": "acActivePowerL2",
                         "StartSite": 33,
                         "Length": 1,
                         "Rate": 1.0,
@@ -1398,7 +1398,7 @@
                         "address": "C009"
                     },
                     {
-                        "Field": "acAtivePowerL3",
+                        "Field": "acActivePowerL3",
                         "StartSite": 37,
                         "Length": 1,
                         "Rate": 1.0,
@@ -1679,7 +1679,7 @@
                         "address": ""
                     },
                     {
-                        "Field": "acAtivePowerL1",
+                        "Field": "acActivePowerL1",
                         "StartSite": 7,
                         "Length": 1,
                         "Rate": 1.0,
@@ -1903,7 +1903,7 @@
                         "address": "10A5"
                     },
                     {
-                        "Field": "acAtivePowerL1",
+                        "Field": "acActivePowerL1",
                         "StartSite": 19,
                         "Length": 1,
                         "Rate": 1.0,
