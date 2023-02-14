@@ -38,7 +38,7 @@ class Handle():
             with open("/home/pi/ReadInfo.json", "w") as file:
                 file.write(json.dumps(result, indent=4))
         else:
-            result = self.GetInfo('/home/pi/ReadInfo.json')
+            result = self.GetInfo('/home/pi/ReadInfo')
         with open("Config/ReadInfo.json", "w") as file:
             file.write(json.dumps(result, indent=4))
         
