@@ -3,8 +3,8 @@
 		"thingName": "rfdme-raspberry-T0000-01",
 		"shadowName": "state",
 		"endpoint": "a3s0shx085zc58-ats.iot.ap-northeast-1.amazonaws.com",
-		"certificatePath": "/greengrass/v2/thingCert.crt",
-		"privateKeyPath": "/greengrass/v2/privKey.key"
+		"certificatePath": "/media/mmcblk0p1/greengrass/v2/thingCert.crt",
+		"privateKeyPath": "/media/mmcblk0p1/greengrass/v2/privKey.key"
 	},
 	"projectID": "T0000",
 	"serial": "/dev/ttyUSB0",

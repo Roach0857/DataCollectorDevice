@@ -2,10 +2,10 @@
     "Log": {
         "FileLevel": "INFO",
         "ConsoleLevel": "INFO",
-        "Path": "/home/pi/AppLog/"
+        "Path": "/media/mmcblk0p1/AppLog/"
     },
-    "LostDataPath": "/home/pi/LostData/",
-    "KinesisDataPath": "/home/pi/KinesisData/",
+    "LostDataPath": "/media/mmcblk0p1/LostData/",
+    "KinesisDataPath": "/media/mmcblk0p1/KinesisData/",
     "otherServer": [],
     "kinesisSource": {
         "Normal": "rfdme-iot-data-prod-stream",
