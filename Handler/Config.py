@@ -35,10 +35,10 @@ class Handle():
         ssmResult = self.GetSSMParameter()
         if ssmResult != None:
             result = json.loads(ssmResult)
-            with open("/home/pi/ReadInfo.json", "w") as file:
+            with open("/media/mmcblk0p1/ReadInfo.json", "w") as file:
                 file.write(json.dumps(result, indent=4))
         else:
-            result = self.GetInfo('/home/pi/ReadInfo')
+            result = self.GetInfo('/media/mmcblk0p1/ReadInfo')
         with open("Config/ReadInfo.json", "w") as file:
             file.write(json.dumps(result, indent=4))
         
